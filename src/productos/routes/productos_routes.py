@@ -8,7 +8,7 @@ productos = Blueprint("productos", __name__)
 def get_all():
     return get_all_products()
 
-@productos.route("<int:id>", methods=["GET"])
+@productos.route("<string:id>", methods=["GET"])
 def get_id(id):
     return get_products_id(id)
 
@@ -16,10 +16,10 @@ def get_id(id):
 def create():
     return create_product()
 
-@productos.route("<int:id>", methods=["PUT"])
+@productos.route("<string:id>", methods=["PUT"])
 def update(id):
     return update_product(id)
 
-@productos.route("<int:id>", methods=["DELETE"])
+@productos.route("<string:id>", methods=["DELETE"])
 def delete(id):
     return delete_product(id)
