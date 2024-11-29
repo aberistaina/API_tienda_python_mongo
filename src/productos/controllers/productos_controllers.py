@@ -1,5 +1,5 @@
 from flask import request ,jsonify
-from ..utils.products_utils import get_all_utils, create_utils, get_id_utils, delete_utils
+from ..utils.products_utils import get_all_utils, create_utils, get_id_utils, delete_utils, update_utils
 
 
 def get_all_products():
@@ -41,7 +41,7 @@ def get_products_id(id):
 def create_product():
     try:
         data = request.get_json()
-        result = create_utils(data)
+        result = update_utils(data)
         
         return jsonify({
             "data": result,
@@ -58,11 +58,11 @@ def create_product():
 def update_product(id):
     try:
         data = request.get_json()
-        result = create_utils(id, data)
+        result = update_utils(id, data)
         
         return jsonify({
             "data": result,
-            "message": f"El Producto {result['nombre']} fue creado correctamente",
+            "message": f"El Producto con id {result['_id']} fue modificado correctamente",
             "code": 201
         }), 201
     

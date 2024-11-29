@@ -81,7 +81,12 @@ def update_utils(id, data):
                         "precio": precio,
                         "stock": stock
                     }})  
-            return result
+            product = mongo.db.productos.find_one({
+            "_id": ObjectId(id)
+            })
+            product["_id"] = str(product["_id"])
+            
+            return product
             
         else:
             raise ValueError(f"El producto con id {id} no existe en la base de datos")
