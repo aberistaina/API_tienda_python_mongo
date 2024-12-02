@@ -62,7 +62,7 @@ def update_product(id):
         
         return jsonify({
             "data": result,
-            "message": f"El Producto con id {result['_id']} fue modificado correctamente",
+            "message": f"El Producto con id {id} fue modificado correctamente",
             "code": 201
         }), 201
     
