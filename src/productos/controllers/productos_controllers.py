@@ -63,8 +63,8 @@ def update_product(id):
         return jsonify({
             "data": result,
             "message": f"El Producto con id {id} fue modificado correctamente",
-            "code": 201
-        }), 201
+            "code": 200
+        }), 200
     
     except Exception as error:  
         return jsonify({
